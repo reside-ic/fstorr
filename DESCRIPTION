@@ -1,0 +1,16 @@
+Package: fstorr
+Title: File Storage
+Version: 0.1.0
+Authors@R:
+    person(given = "Rich",
+           family = "FitzJohn",
+           role = c("aut", "cre"),
+           email = "rich.fitzjohn@gmail.com")
+Description: Store files by content, similar in spirit to the 'storr'
+    package (into which this might get folded).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Language: en-GB
+Suggests:
+    testthat
