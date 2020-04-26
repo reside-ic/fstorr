@@ -20,6 +20,13 @@
 ##'
 ##' @return A \code{fstorr} object
 ##' @author Rich Fitzjohn
+##' @export
+##' @examples
+##' path <- tempfile()
+##' obj <- fstorr::fstorr(path, charToRaw)
+##' obj$list()
+##' obj$get("a")
+##' obj$list()
 fstorr <- function(root, get_resource, hash_content = NULL) {
   r6_fstorr$new(root, get_resource, hash_content %||% hash_content_default)
 }
