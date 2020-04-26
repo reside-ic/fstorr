@@ -53,3 +53,25 @@ test_that("partial insert", {
     lapply(res, readLines, warn = FALSE),
     as.list(letters[1:5]))
 })
+
+
+test_that("custom hash", {
+  salt <- "mysalt"
+  h <- function(x) {
+    as.character(openssl::sha256(x, salt))[]
+  }
+
+  path <- tempfile()
+  obj <- fstorr(path, charToRaw, h)
+  res <- withVisible(obj$insert("a"))
+  expect_true(obj$exists("a"))
+
+  p <- obj$path("a")
+  expect_equal(res, list(value = p, visible = FALSE))
+
+  expect_true(file.exists(p))
+  expect_equal(obj$list(), "a")
+  expect_equal(basename(p), h(charToRaw("a")))
+  expect_equal(p, file.path(path, "data", basename(p)))
+  expect_equal(readLines(p, warn = FALSE), "a")
+})
