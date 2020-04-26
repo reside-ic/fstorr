@@ -1,11 +1,10 @@
 Package: fstorr
 Title: File Storage
 Version: 0.1.0
-Authors@R:
-    person(given = "Rich",
-           family = "FitzJohn",
-           role = c("aut", "cre"),
-           email = "rich.fitzjohn@gmail.com")
+Authors@R: c(person("Rich", "FitzJohn", role = c("aut", "cre"),
+                    email = "rich.fitzjohn@gmail.com"),
+             person("Imperial College of Science, Technology and Medicine",
+                    role = "cph"))
 Description: Store files by content, similar in spirit to the 'storr'
     package (into which this might get folded).
 License: MIT + file LICENSE
