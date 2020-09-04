@@ -77,7 +77,7 @@ test_that("custom hash", {
 })
 
 
-test_that("can delete from the ", {
+test_that("can delete from the cache", {
   path <- tempfile()
   obj <- fstorr(path, charToRaw)
   keys <- c("a", "c", "e")
