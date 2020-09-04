@@ -75,3 +75,16 @@ test_that("custom hash", {
   expect_equal(p, file.path(path, "data", basename(p)))
   expect_equal(readLines(p, warn = FALSE), "a")
 })
+
+
+test_that("can delete from the ", {
+  path <- tempfile()
+  obj <- fstorr(path, charToRaw)
+  keys <- c("a", "c", "e")
+  obj$insert(keys)
+  path <- obj$path(keys)
+  obj$del(c("a", "c"))
+  expect_false(file.exists(path[[1]]))
+  expect_true(file.exists(path[[3]]))
+  expect_equal(obj$list(), keys[[3]])
+})

@@ -113,6 +113,12 @@ r6_fstorr <- R6::R6Class(
       ret
     },
 
+    del = function(key) {
+      path <- self$path(key)
+      private$db$mdel(key)
+      unlink(path[!is.na(path)])
+    },
+
     list = function() {
       sort(private$db$list(as_raw = FALSE))
     },
